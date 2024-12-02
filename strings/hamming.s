@@ -32,10 +32,10 @@ hamming_dist:
 .mismatch:
 	movdqu xmm0, [rdi]
 	pcmpistrm xmm0, [rsi], 0b0011000
-	cmovz rdx, [one]
-	cmovs rdx, [one]
-	movdqu [mask], xmm0
-	mov ax, [mask]
+	cmovz rdx, [rel one]
+	cmovs rdx, [rel one]
+	movdqu [rel mask], xmm0
+	mov ax, [rel mask]
 	call count_ones
 	add rbx, rcx
 
@@ -55,7 +55,7 @@ hamming_dist:
 str_len:
 	xor rax, rax
 	xor rcx, rcx
-	movdqu xmm0, [ascii]
+	movdqu xmm0, [rel ascii]
 .loop:
 	add rax, rcx
 	pcmpistri xmm0, [rdi + rax], 0b0010100
