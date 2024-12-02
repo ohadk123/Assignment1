@@ -11,4 +11,4 @@ main: formula1.o formula2.o
 	gcc -g formula1.o formula2.o main.c -lm
 
 clean:
-	rm -rfd *.o a.out
+	rm -f *.o a.out
