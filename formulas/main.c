@@ -54,7 +54,6 @@ int main(void)
 
     float *x = malloc(sizeof(float) * MAX_LENGTH);
     float *y = malloc(sizeof(float) * MAX_LENGTH);
-    int count = 0;
     for (int i = 0; i < NUM_TESTS; i++)
     {
         unsigned int length = (rand() % MAX_LENGTH) + 1;
@@ -92,17 +91,16 @@ int main(void)
 
         if (!is_close(form2, test2))
         {
-            // printf("failed formula 2\n");
-            // printf("%f %f\n", form2, test2);
-            count++;
+            printf("failed formula 2\n");
+            printf("%f %f\n", form2, test2);
             is_close2(form2, test2);
 
-            // return 0;
+            return 0;
         }
 
-        // printf("test1: %f\t\t\t test2:%f\n", test1, test2);
+        printf("test1: %f\t\t\t test2:%f\n", test1, test2);
     }
-    printf("%d: test completed successfully\n", count);
+    printf("test completed successfully\n");
 
     free(x);
     free(y);

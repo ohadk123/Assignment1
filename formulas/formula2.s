@@ -43,8 +43,8 @@ formula2:
 .sum_loop:
 	cmp rcx, rdx
 	jge .hadd_sum
-	movaps xmm1, [rdi + rcx * 4]	; xmm2 = x_vec
-	movaps xmm2, [rsi + rcx * 4]	; xmm3 = y_vec
+	movaps xmm2, [rdi + rcx * 4]	; xmm2 = x_vec
+	movaps xmm3, [rsi + rcx * 4]	; xmm3 = y_vec
 
 	mulps xmm2, xmm3			; x * y
 	divps xmm2, xmm0			; xy / prod
